@@ -68,7 +68,7 @@ namespace Week4Day4Ex1
 
                 for (int j = 0; j < studentgrades[i].Length; j++)
                 {
-                    Console.Write($"\t Student {StudName[i]} | Subject { studentgrades[i][j].subj} | Grade { studentgrades[i][j].grade}|");
+                    Console.Write($"\t Student {StudName[i]} | Subject { studentgrades[i][j].subj} | Grade { studentgrades[i][j].grade}| \n");
                     //now we're writing out and the student name, the [i] is from the for loop in this for loop
                     //studentgrades[i][j] from line 55, calling the subj from our Grade fuction, the subject was entered on (Line 53)
                     //and then the grade for that subject, which was enter on (Line 55)
