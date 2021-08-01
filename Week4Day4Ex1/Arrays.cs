@@ -62,9 +62,9 @@ namespace Week4Day4Ex1
             // Once we have all the information, now it's time to print this
             Console.Write("\t The Student Grades are is as followed: \n");
             Console.Write("\t -----------------------------------------");
-            for (int i = 0; i < numStu; i++)
+            for (int i = 0; i < numStu; i++) //this first for loop is for counting the number of student, like for student 0 until number that was entered on (Line 21)
             {
-                Console.Write("\n");
+                Console.Write("\n"); 
 
                 for (int j = 0; j < studentgrades[i].Length; j++)
                 {
