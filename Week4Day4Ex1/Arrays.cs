@@ -16,22 +16,35 @@ namespace Week4Day4Ex1
             Console.WriteLine("\t ----------------------------------------------------------------------------------------------");
             Console.WriteLine("\n");
             Console.WriteLine("\t Please enter the number of students you wish to enter: ");
+
+            //need to get number of student(s)
             int numStu = Convert.ToInt32(Console.ReadLine());
             int numCour;
 
-            char[][] studentgrades = new char[numStu][];
+            //getting student name base on number of student
+            string[] StudName;
+            StudName = new string[numStu];
+            for (int a = 0; a < numStu; a++)
+            {
+                Console.WriteLine($"\t Lets put in the student Name starting from student {a} : ");
+                StudName[a] = Console.ReadLine();
+            }
+
+            Grade[][] studentgrades = new Grade[numStu][];
             for(int i = 0; i<studentgrades.Length; i++)
             {
-                Console.WriteLine($"\t Please enter the number of subjects for each student starting with student {i} :");
+                Console.WriteLine($"\t Please enter the number of subjects for each student starting with student {StudName[i]} :");
                 numCour = Convert.ToInt32(Console.ReadLine());
 
-                studentgrades[i] = new char[numCour];
+                studentgrades[i] = new Grade[numCour];
 
                 for(int j = 0; j < studentgrades[i].Length; j++)
                 {
-                    Console.WriteLine($"\t Please enter the grades for this student {i} course {j}");
-                    studentgrades[i][j] = Convert.ToChar(Console.ReadLine());
-
+                    Console.WriteLine("\t Please enter the Subject name starting with subject {0}");
+                    string subj = Console.ReadLine();
+                    Console.WriteLine($"\t Please enter the grade for subject {subj}");
+                    char grade = Convert.ToChar(Console.ReadLine());
+                    studentgrades[i][j] = new Grade(subj, grade);
                 }
                 //for every number of student which is the index i, assign x number of subject [j] (Line 23 - 28)
                 //for every number of student [i], going into each specific subject [j], enter a grade for each until [i] and [j] length is maxed out (Line 30-33)
@@ -39,21 +52,32 @@ namespace Week4Day4Ex1
 
             Console.Write("\t The Student Grades are is as followed: \n");
             Console.Write("\t -----------------------------------------");
-            for (int i = 0; i < studentgrades.Length; i++)
+            for (int i = 0; i < numStu; i++)
             {
                 Console.Write("\n");
 
                 for (int j = 0; j < studentgrades[i].Length; j++)
                 {
-                    Console.Write($"\t Student {i} | { studentgrades[i][j]} |");
+                    Console.Write($"\t Student {StudName[i]} | Subject { studentgrades[i][j].subj} | Grade { studentgrades[i][j].grade}|");
                 }
                 //for every number of students [i] and subject [j] write out the grades of each student per subject until max
             }
             Console.WriteLine("\n");
-            Console.WriteLine("Now that you see how JaggedArray is created, lets move on!");
+            Console.WriteLine("\t Now that you see how JaggedArray is created, lets move on!");
             Console.WriteLine("\t -------------------------------");
             Console.WriteLine("\t Lets go back to the main menu!");
             Console.WriteLine("\t ------------------------------");
+        }
+        public class Grade
+        {
+            public string subj { get; set; }
+            public char grade { get; set; }
+            public Grade(string subj, char grade)
+            {
+                this.grade = grade;
+                this.subj = subj;
+            }
+
         }
         public static void array2D()
         {
